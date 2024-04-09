@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4uwb1yhqjmm7"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ajnyt"]
+[ext_resource type="PackedScene" uid="uid://by70tn8vw7j2g" path="res://ColoredSpotlight.tscn" id="2_rrvel"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hnmyp"]
+
+[node name="Node3D" type="Node3D" node_paths=PackedStringArray("camera", "plane", "light")]
+script = ExtResource("1_ajnyt")
+camera = NodePath("Camera3D")
+plane = NodePath("MeshInstance3D")
+light = NodePath("SpotLight3D")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.768485, 0.639868, 0, -0.639868, 0.768485, 0, 1.34092, 2.35121)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("BoxMesh_hnmyp")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.457936, 0.888985, 0, -0.888985, 0.457936, 0, 1.71459, 1.6101)
+light_color = Color(0.196078, 0.380392, 0.619608, 1)
+light_energy = 10.308
+spot_angle = 23.06
+
+[node name="ColoredSpotlight" parent="." instance=ExtResource("2_rrvel")]
